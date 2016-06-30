@@ -1,0 +1,94 @@
+<div>
+	<p><a href="#/viewEmpire"><button>Your Empire</button></a> <a href="#" ng-click="logout()"><button>Log Out</button></a></p>
+	<h3>Welcome Lord <span>{{user.firstName}}</span>! Please check out our stock</h3>
+	<center>
+		<h1>{{ error() }}</h1>
+		<p ng-repeat="message in messages">{{ message }}</p>
+		<fieldset>
+			<legend><h2>Black Market</h2></legend>
+			<table>
+				<tr>
+					<th>Unit</th>
+					<th>Current</th>
+					<th>Price</th>
+					<th>Abilites</th>
+					<th>Buy More</th>
+					<th>Cost</th>
+				</tr>
+				<tr>
+					<td>Worker</td>
+					<td>{{ empire.worker }}</td>
+					<td>1 Gold/Each</td>
+					<td>Give you (1-5) golds each time you send them to work(up to 10 times/day)</td>
+					<td><input type="number" ng-model="newArmy.worker"></td>
+					<td>{{ worker() }} Gold(s)</td>
+				</tr>
+				<tr>
+					<td>Infantry</td>
+					<td>{{ empire.infantry }}</td>
+					<td>1 Gold/Each</td>
+					<td>Give you (1-10) army power for each Infantry you have</td>
+					<td><input type="number" ng-model="newArmy.infantry" required></td>
+					<td>{{ infantry() }} Gold(s)</td>
+				</tr>
+				<tr>
+					<td>Archer</td>
+					<td>{{ empire.archer }}</td>
+					<td>2 Golds/Each</td>
+					<td>Give you (3-15) army power for each Archer you have</td>
+					<td><input type="number" ng-model="newArmy.archer"></td>
+					<td>{{ archer() }} Gold(s)</td>
+				</tr>
+				<tr>
+					<td>Knight</td>
+					<td>{{ empire.knight }}</td>
+					<td>3 Golds/Each</td>
+					<td>Give you (5-20) army power for each Knight you have</td>
+					<td><input type="number" ng-model="newArmy.knight"></td>
+					<td>{{ knight() }} Gold(s)</td>
+				</tr>
+				<tr>
+					<td>Warrior</td>
+					<td>{{ empire.warrior }}</td>
+					<td>5 Golds/Each</td>
+					<td>Give you (10-15) army power for each Warrior you have</td>
+					<td><input type="number" ng-model="newArmy.warrior"></td>
+					<td>{{ warrior() }} Gold(s)</td>
+				</tr>
+				<tr>
+					<td>Calvary</td>
+					<td>{{ empire.calvary }}</td>
+					<td>10 Golds/Each</td>
+					<td>Give you (15-25) army power for each Calvary you have</td>
+					<td><input type="number" ng-model="newArmy.calvary"></td>
+					<td>{{ calvary() }} Gold(s)</td>
+				</tr>
+				<tr>
+					<td>Hero</td>
+					<td>{{ empire.hero }}</td>
+					<td>100 Golds/Each</td>
+					<td>Give you (10-150) army power for each Hero you have</td>
+					<td><input type="number" ng-model="newArmy.hero"></td>
+					<td>{{ hero() }} Gold(s)</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td>Total Cost:</td>
+					<td>{{ total() }} Gold(s)</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td><input type="submit" value="Buy" ng-click='buyArmy(newArmy)' ng-if='currentGold() >= 0'></td>
+					<td></td>
+				</tr>
+			</table>
+			<h4>Current Gold: {{ currentGold() }} Gold(s)</h4>
+		</fieldset>
+	</center>
+</div>

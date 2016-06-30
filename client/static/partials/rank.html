@@ -1,0 +1,31 @@
+<div>
+	<p><a href="#/viewEmpire"><button>Your Empire</button></a> <a href="#" ng-click="logout()"><button>Log Out</button></a></p>
+	<h3>Welcome Lord <span>{{ user.firstName }}</span>! This is the list of top empires</h3>
+	<p id="searchbox"><input type="text" value="Search" ng-model="filter_name" placeholder="Search"></p>
+	<table>
+		<tr>
+			<th>Empire</th>
+			<th>Worker</th>
+			<th>Infantry</th>
+			<th>Archer</th>
+			<th>Knight</th>
+			<th>Warrior</th>
+			<th>Calvary</th>
+			<th>Hero</th>
+			<th>Gold</th>
+			<th>Action</th>
+		</tr>
+		<tr ng-repeat='eachEmpire in empireList | filter: filter_name | orderBy: "-gold"' ng-if="eachEmpire._id != user.empire_id">
+			<td>{{eachEmpire.name}} of {{eachEmpire.user_name}}</td>
+			<th>{{eachEmpire.worker}}</th>
+			<th>{{eachEmpire.infantry}}</th>
+			<th>{{eachEmpire.archer}}</th>
+			<th>{{eachEmpire.knight}}</th>
+			<th>{{eachEmpire.warrior}}</th>
+			<th>{{eachEmpire.calvary}}</th>
+			<th>{{eachEmpire.hero}}</th>
+			<th>{{eachEmpire.gold}}</th>
+			<th><a href="#/enemy/{{eachEmpire._id}}"><button>Inspect</button></a></td></th>
+		</tr>
+	</table>
+</div>

@@ -1,0 +1,57 @@
+<div>
+	<p><a href="#/rank"><button>Ranking</button></a> <a href="#/economy"><button>Economy</button></a> <a href="#/blackMarket"><button>Black Market</button></a> <a href="#" ng-click="logout()"><button>Log Out</button></a></p>
+	<h3>Welcome Lord <span>{{user.firstName}}</span>! Here is your empire info</h3>
+	<h5>Your Adviser: {{ adviser() }}</h5>
+	<h5>Your Commander: {{ commander() }}</h5>
+	<h5>Your Chancellor: {{ chancellor() }}</h5>
+	<center>
+		<fieldset>
+			<legend><h2>{{ empire.name }}</h2></legend>
+			<table>
+				<tr>
+					<th>Unit</th>
+					<th>Quantity</th>
+					<th>Abilities</th>
+				</tr>
+				<tr>
+					<td>Worker</td>
+					<td>{{ empire.worker }}</td>
+					<td>Give you (1-5) golds each time you send them to work(up to 10 times/day)</td>
+				</tr>
+				<tr>
+					<td>Infantry</td>
+					<td>{{ empire.infantry }}</td>
+					<td>Give you (1-10) army power for each Infantry you have</td>
+				</tr>
+				<tr>
+					<td>Archer</td>
+					<td>{{ empire.archer }}</td>
+					<td>Give you (3-15) army power for each Archer you have</td>
+				</tr>
+				<tr>
+					<td>Knight</td>
+					<td>{{ empire.knight }}</td>
+					<td>Give you (5-20) army power for each Knight you have</td>
+				</tr>
+				<tr>
+					<td>Warrior</td>
+					<td>{{ empire.warrior }}</td>
+					<td>Give you (10-15) army power for each Warrior you have</td>
+				</tr>
+				<tr>
+					<td>Calvary</td>
+					<td>{{ empire.calvary }}</td>
+					<td>Give you (15-25) army power for each Calvary you have</td>
+				</tr>
+				<tr>
+					<td>Hero</td>
+					<td>{{ empire.hero }}</td>
+					<td>Give you (10-150) army power for each Hero you have</td>
+				</tr>
+			</table>
+			<h4>Army power: {{ empire.power }}</h4>
+			<h4>Current Gold: {{ empire.gold }} Gold(s)</h4>
+		</fieldset>
+	</center>
+	<h6>*HINT: Don't listen to your Adviser</h6>
+</div>
