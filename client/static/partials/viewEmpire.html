@@ -54,4 +54,9 @@
 		</fieldset>
 	</center>
 	<h6>*HINT: Don't trust everything that your Advisor says...</h6>
+	<div>
+		<ul>
+			<li ng-repeat='update in updates | orderBy: "-created_at"'><h3>{{update.update}}</h3></li>
+		</ul>
+	</div>
 </div>

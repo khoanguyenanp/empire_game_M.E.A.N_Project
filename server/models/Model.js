@@ -27,3 +27,9 @@ var EmpireSchema = mongoose.Schema({
 	click			:Number
 })
 mongoose.model('Empire', EmpireSchema);
+
+var UpdateSchema = mongoose.Schema({
+	update 			:String,
+	created_at  	:{ type: Date, default: Date.now }
+})
+mongoose.model('Update', UpdateSchema);

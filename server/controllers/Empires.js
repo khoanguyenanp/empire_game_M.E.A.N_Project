@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
 var Empire = mongoose.model('Empire');
+var Update = mongoose.model('Update');
 var date = new Date();
 
 module.exports = {
@@ -162,7 +163,27 @@ module.exports = {
 		})
 	},
 
-
+	updateNews: function(req,res){
+		var newUpdate = new Update({update: req.body[0]});
+		newUpdate.save(function(err){
+			if(err){
+				console.log("Error(s)", err);
+			} else {
+				Update.find({}).sort({created_at: -1}).limit(20).exec(function(err, data){
+					res.json(data);
+				})
+			}
+		})
+	},
+	viewUpdate: function(req,res){
+		Update.find({}).sort({created_at: -1}).limit(20).exec(function(err, data){
+			if(err){
+				console.log("Error(s)", err);
+			} else {
+				res.json(data);
+			}
+		})
+	}
 
 
 

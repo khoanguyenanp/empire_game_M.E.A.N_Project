@@ -47,7 +47,6 @@ myApp.factory('userFactory', function($http, $location){
 	}
 	factory.passingID = function(data){
 		currentUser.empire_id =data;
-		console.log(currentUser);
 	}
 	return factory;
 })
@@ -57,6 +56,7 @@ myApp.factory('empireFactory', function($http, $location){
 	var empire = {};
 	var empireList = [];
 	var messages = [];
+	var update =[];
 
 	factory.createEmpire = function(data,callback){
 		$http.post('/createEmpire', data).success(function(output){
@@ -94,7 +94,6 @@ myApp.factory('empireFactory', function($http, $location){
 
 	factory.getEmpire = function(callback){
 		$http.get('/getEmpire').success(function(data){
-			console.log(data);
 			empireList =data;
 			callback(empireList);
 		})
@@ -113,6 +112,22 @@ myApp.factory('empireFactory', function($http, $location){
 	}
 	factory.updateEnemy = function(data,callback){
 		$http.post('/updateEnemy', data).success(function(output){
+			callback(output);
+		})
+	}
+	factory.updateEnemy = function(data,callback){
+		$http.post('/updateEnemy', data).success(function(output){
+			callback(output);
+		})
+	}
+	factory.updateNews = function(data){
+		$http.post('/updateNews', data).success(function(output, callback){
+			callback(output);
+			var update =output;
+		})
+	}
+	factory.viewUpdate = function(callback){
+		$http.get('/viewUpdate').success(function(output){
 			callback(output);
 		})
 	}
