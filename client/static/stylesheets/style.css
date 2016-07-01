@@ -51,6 +51,7 @@ html {
 }
 
 #Login {
+  vertical-align: top;
   display: inline-block;
   width: 350px;
 }
@@ -130,6 +131,11 @@ h4 {
   box-sizing: border-box;
   border-radius: 5px;
   overflow: scroll;
+}
+.rankAdvisor {
+  color: #A81A1A;
+  /*font-size: 20px;*/
+  font-family: 'Noto Serif', serif;
 }
 /********************VIEW EMPIRE PARTIAL********************/
 

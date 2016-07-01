@@ -1,6 +1,7 @@
 <div>
 	<center><p><a href="#/viewEmpire"><button>Your Empire</button></a> <a href="#" ng-click="logout()"><button>Log Out</button></a></p>
-	<h3 class="viewCenter">Welcome Lord <span class="viewCenter">{{ user.firstName }}</span>! This is the list of top empires</h3></center>
+	<h3 class="viewCenter">Welcome Lord <span class="viewCenter">{{ user.firstName }}</span>! This is the list of top empires</h3>
+	<h4 class="rankAdvisor">Your Advisor: {{ adviser() }}</h4></center>
 	<p id="searchbox"><input style="margin-top:10px;"type="text" value="Search" ng-model="filter_name" placeholder="Search"></p>
 	<div id="rankDiv">
 		<table>

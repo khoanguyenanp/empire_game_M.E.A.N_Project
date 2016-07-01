@@ -434,6 +434,32 @@ myApp.controller('economyController', function($scope, userFactory,empireFactory
 			$scope.empire = data;
 		})
 	}
+	$scope.foreman = function(){
+		if($scope.empire.worker == 0){
+			return ("We dont have any laborers, do you expect me to work???")
+		}
+		if($scope.empire.worker < 500){
+			return ("We need more laborers my Lord, to make gold and to sacrify ...")
+		}
+		if($$scope.empire.worker > 2000){
+			return ("We have good amount of laborers, lets send them to the sea, to make gold and fed them to the shark, LIKE A BOSS")
+		} else {
+			return ("laborers, get to work, make yourself useful.")
+		}
+	}
+	$scope.adviser = function(){
+		if($scope.empire.gold > 10000){
+			return ("Lets gamble, easy way to make gold")
+		}
+		if($scope.empire.worker < 500){
+			return ("I told you, my Lord! Those laborers only good as food for the sharks")
+		}
+		if($scope.empire.gold < 3000){
+			return ("Do something, or I will tell my Lord to sacrify all of you")
+		} else {
+			return ("My Lord, you see that pretty place call Gamble right there, try it, it's fun")
+		}
+	}
 })
 
 myApp.controller('rankController', function($scope, userFactory,empireFactory, $location){
@@ -460,6 +486,21 @@ myApp.controller('rankController', function($scope, userFactory,empireFactory, $
 	empireFactory.getEmpire(function(data){
 		$scope.empireList = data;
 	})
+	$scope.adviser = function(){
+		var i = Math.floor(Math.random()*10);
+		var eName = $scope.empireList[i].name;
+		if(i > 7){
+			return ("Lets attack " + eName + " empire, we can crush them like insect");
+		}
+		if(i >= 4){
+			return ("Why don't we attack " + eName + " empire, they look weak. They're afraid of your name");
+		}
+		if(i < 4){
+			return ("Look at " + eName + " empire, attack them and take their gold please, my Lord.")
+		} else {
+			return ("Attack someone, my Lord. You need to make your name")
+		}
+	}
 })
 myApp.controller('enemyController', function($scope, userFactory,empireFactory, $routeParams, $location){
 	$scope.empire = {};
