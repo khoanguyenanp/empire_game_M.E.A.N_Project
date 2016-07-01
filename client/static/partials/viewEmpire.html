@@ -1,5 +1,5 @@
 <div>
-	<p><a href="#/rank"><button>Ranking</button></a> <a href="#/economy"><button>Economy</button></a> <a href="#/blackMarket"><button>Black Market</button></a> <a href="#" ng-click="logout()"><button>Log Out</button></a></p>
+	<p><a href="#/rank"><button>Ranking</button></a> <a href="#/economy"><button>Economy</button></a> <a href="#/blackMarket"><button>Black Market</button></a> <a href="#" ng-click="logout()"><button>Log Out</button></a> <a href="#/createEmpire" ng-if="user.empire_id == null"><button>Create Empire</button></a></p>
 	<h3>Welcome Lord <span>{{user.firstName}}</span>! Here is your empire info</h3>
 	<h5>Your Adviser: {{ adviser() }}</h5>
 	<h5>Your Commander: {{ commander() }}</h5>

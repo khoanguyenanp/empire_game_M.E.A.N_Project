@@ -244,7 +244,6 @@ myApp.controller('blackMarketController', function($scope, userFactory,empireFac
 	$scope.empire = {};
 	$scope.user = {};
 	$scope.messages=[];
-	$scope.date = new Date();
 
 	userFactory.getUser(function(data){
 		$scope.user = data;
@@ -334,11 +333,9 @@ myApp.controller('blackMarketController', function($scope, userFactory,empireFac
 })
 
 myApp.controller('economyController', function($scope, userFactory,empireFactory, $location){
-	$scope.newArmy = {};
 	$scope.empire = {};
 	$scope.user = {};
 	$scope.messages=[];
-	$scope.date = new Date();
 
 	userFactory.getUser(function(data){
 		$scope.user = data;
@@ -434,12 +431,9 @@ myApp.controller('economyController', function($scope, userFactory,empireFactory
 })
 
 myApp.controller('rankController', function($scope, userFactory,empireFactory, $location){
-	$scope.newArmy = {};
 	$scope.empire = {};
 	$scope.user = {};
 	$scope.messages=[];
-	$scope.empireList = [];
-	$scope.date = new Date();
 
 	userFactory.getUser(function(data){
 		$scope.user = data;
@@ -456,6 +450,31 @@ myApp.controller('rankController', function($scope, userFactory,empireFactory, $
 	})
 	empireFactory.getEmpire(function(data){
 		$scope.empireList = data;
+	})
+
+})
+myApp.controller('enemyController', function($scope, userFactory,empireFactory, $routeParams, $location){
+	$scope.empire = {};
+	$scope.user = {};
+	$scope.messages=[];
+	$scope.enemy = {};
+	var id = $routeParams.id;
+
+	userFactory.getUser(function(data){
+		$scope.user = data;
+	})
+	$scope.logout = function(){
+		$scope.user=[];
+		$location.path('/');
+	}
+	if($scope.user.length == 0 || $scope.user== "undefined"){
+		$location.path('/');
+	}
+	empireFactory.viewEmpire($scope.user.empire_id, function(data){
+		$scope.empire = data;
+	})
+	empireFactory.viewEnemy(id, function(data){
+		$scope.enemy = {};
 	})
 
 })
