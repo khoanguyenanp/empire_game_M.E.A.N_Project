@@ -490,8 +490,8 @@ myApp.controller('enemyController', function($scope, userFactory,empireFactory, 
 	$scope.attack = function(){
 		$scope.messages=[];
 		$scope.update = [];
-		var enemyPower = $scope.enemy.power * 1.5;
-		var myPower = $scope.empire.power * 0.9;
+		var enemyPower = $scope.enemy.power * 1.2;
+		var myPower = $scope.empire.power;
 		if(myPower > enemyPower){
 			var dif = Math.floor(myPower/enemyPower);
 			enemyPower = enemyPower * dif;
@@ -504,7 +504,7 @@ myApp.controller('enemyController', function($scope, userFactory,empireFactory, 
 				$scope.enemy.gold = Math.floor(($scope.enemy.gold/100)* deduct);
 				var win = temp-$scope.enemy.gold;
 				$scope.messages.push("You win " + win + " golds from your enemy but we lose some of our army as well");
-				$scope.update.push("System: " + $scope.empire.name + " of " + $scope.empire.user_name + " attack " + $scope.enemy.name + " of " + $scope.enemy.user_name + " and WIN");
+				$scope.update.push("System: " + " "  + $scope.empire.name + " of " + $scope.empire.user_name + " attack " + $scope.enemy.name + " of " + $scope.enemy.user_name + " and WIN");
 				$scope.enemy.worker = Math.floor(($scope.enemy.worker/100)* deduct);
 				$scope.enemy.infantry = Math.floor(($scope.enemy.infantry/100)* deduct);
 				$scope.enemy.archer = Math.floor(($scope.enemy.archer/100)* deduct);
@@ -529,7 +529,7 @@ myApp.controller('enemyController', function($scope, userFactory,empireFactory, 
 				$scope.empire.gold = Math.floor(($scope.empire.gold/100)* deduct);
 				var lost = temp-$scope.empire.gold;
 				$scope.messages.push("You lost " + lost + " golds to your enemy and some of our army as well");
-				$scope.update.push("System: " + $scope.empire.name + " of " + $scope.empire.user_name + " attack " + $scope.enemy.name + " of " + $scope.enemy.user_name + " and LOST");
+				$scope.update.push("System: " + " "  + $scope.empire.name + " of " + $scope.empire.user_name + " attack " + $scope.enemy.name + " of " + $scope.enemy.user_name + " and LOST");
 				$scope.empire.worker = Math.floor(($scope.empire.worker/100)* deduct);
 				$scope.empire.infantry = Math.floor(($scope.empire.infantry/100)* deduct);
 				$scope.empire.archer = Math.floor(($scope.empire.archer/100)* deduct);
@@ -562,7 +562,7 @@ myApp.controller('enemyController', function($scope, userFactory,empireFactory, 
 				$scope.enemy.gold = Math.floor(($scope.enemy.gold/100)* deduct);
 				var win = temp-$scope.enemy.gold;
 				$scope.messages.push("You win " + win + " golds from your enemy but we lose some of our army as well");
-				$scope.update.push("System: " + $scope.empire.name + " of " + $scope.empire.user_name + " attack " + $scope.enemy.name + " of " + $scope.enemy.user_name + " and WIN");
+				$scope.update.push("System: " + " "  + $scope.empire.name + " of " + $scope.empire.user_name + " attack " + $scope.enemy.name + " of " + $scope.enemy.user_name + " and WIN");
 				$scope.enemy.worker = Math.floor(($scope.enemy.worker/100)* deduct);
 				$scope.enemy.infantry = Math.floor(($scope.enemy.infantry/100)* deduct);
 				$scope.enemy.archer = Math.floor(($scope.enemy.archer/100)* deduct);
@@ -587,7 +587,7 @@ myApp.controller('enemyController', function($scope, userFactory,empireFactory, 
 				$scope.empire.gold = Math.floor(($scope.empire.gold/100)* deduct);
 				var lost = temp-$scope.empire.gold;
 				$scope.messages.push("You lost " + lost + " golds to your enemy and some of our army as well");
-				$scope.update.push("System: " + $scope.empire.name + " of " + $scope.empire.user_name + " attack " + $scope.enemy.name + " of " + $scope.enemy.user_name + " and LOST");
+				$scope.update.push("System: " + " " + $scope.empire.name + " of " + $scope.empire.user_name + " attack " + $scope.enemy.name + " of " + $scope.enemy.user_name + " and LOST");
 				$scope.empire.worker = Math.floor(($scope.empire.worker/100)* deduct);
 				$scope.empire.infantry = Math.floor(($scope.empire.infantry/100)* deduct);
 				$scope.empire.archer = Math.floor(($scope.empire.archer/100)* deduct);

@@ -1,83 +1,83 @@
 <div>
-	<p><a href="#/viewEmpire"><button>Your Empire</button></a> <a href="#" ng-click="logout()"><button>Log Out</button></a></p>
-	<h3>Welcome Lord <span>{{user.firstName}}</span>! Please check out our stock</h3>
+	<center><p><a href="#/viewEmpire"><button>Your Empire</button></a> <a href="#" ng-click="logout()"><button>Log Out</button></a></p>
+	<h3 class="viewCenter">Welcome Lord <span class="viewCenter">{{user.firstName}}</span>! Please check out our stock</h3></center>
 	<center>
 		<h1>{{ error() }}</h1>
 		<p ng-repeat="message in messages">{{ message }}</p>
-		<fieldset>
-			<legend><h2>Black Market</h2></legend>
-			<table>
+		<div id="marketContainer">
+			<h1 style="color:#A81A1A">Black Market</h1>
+			<table style="border-spacing: 10px;">
 				<tr>
 					<th>Unit</th>
 					<th>Current amount</th>
-					<th>Price</th>
+					<th style="width: 150px;">Price</th>
 					<th>Abilites</th>
-					<th>Buy More</th>
-					<th>Cost</th>
+					<th style="width: 150px;">Buy More</th>
+					<th style="width: 150px;">Cost</th>
 				</tr>
 				<tr>
 					<td>Laborers</td>
-					<td>{{ empire.worker }}</td>
+					<td><center>{{ empire.worker }}</center></td>
 					<td>1 Gold each</td>
 					<td>Laborers grant you 1-5 gold each time you send them to work (up to 10 times per day)</td>
-					<td><input type="number" ng-model="newArmy.worker"></td>
-					<td>{{ worker() }} Gold</td>
+					<td><center><input class="marketInput" type="number" ng-model="newArmy.worker"></center></td>
+					<td><center>{{ worker() }} Gold</center></td>
 				</tr>
 				<tr>
 					<td>Infantry</td>
-					<td>{{ empire.infantry }}</td>
+					<td><center>{{ empire.infantry }}</center></td>
 					<td>1 Gold each</td>
 					<td>Infantry grants power to your army from a scale of 1-10 for each infantry unit you have</td>
-					<td><input type="number" ng-model="newArmy.infantry" required></td>
-					<td>{{ infantry() }} Gold</td>
+					<td><center><input class="marketInput" type="number" ng-model="newArmy.infantry" required></center></td>
+					<td><center>{{ infantry() }} Gold</center></td>
 				</tr>
 				<tr>
 					<td>Archer</td>
-					<td>{{ empire.archer }}</td>
+					<td><center>{{ empire.archer }}</center></td>
 					<td>2 Gold each</td>
 					<td>Archers grant power to your army from a scale of 3-15 for each archer unit you have</td>
-					<td><input type="number" ng-model="newArmy.archer"></td>
-					<td>{{ archer() }} Gold</td>
+					<td><center><input class="marketInput" type="number" ng-model="newArmy.archer"></center></td>
+					<td><center>{{ archer() }} Gold</center></td>
 				</tr>
 				<tr>
 					<td>Knight</td>
-					<td>{{ empire.knight }}</td>
+					<td><center>{{ empire.knight }}</center></td>
 					<td>3 Gold each</td>
 					<td>Knights grant power to your army from a scale of 5-20 for each knight unit you have</td>
-					<td><input type="number" ng-model="newArmy.knight"></td>
-					<td>{{ knight() }} Gold</td>
+					<td><center><input class="marketInput" type="number" ng-model="newArmy.knight"></center></td>
+					<td><center>{{ knight() }} Gold</center></td>
 				</tr>
 				<tr>
 					<td>Warrior</td>
-					<td>{{ empire.warrior }}</td>
+					<td><center>{{ empire.warrior }}</center></td>
 					<td>5 Gold each</td>
 					<td>Warriors grant power to your army from a scale of 10-15 for each warrior unit you have</td>
-					<td><input type="number" ng-model="newArmy.warrior"></td>
-					<td>{{ warrior() }} Gold</td>
+					<td><center><input class="marketInput" type="number" ng-model="newArmy.warrior"></center></td>
+					<td><center>{{ warrior() }} Gold</center></td>
 				</tr>
 				<tr>
 					<td>Calvary</td>
-					<td>{{ empire.calvary }}</td>
+					<td><center>{{ empire.calvary }}</center></td>
 					<td>10 Gold each</td>
 					<td>The calvary grants power to your army from a scale of 15-25 for each calvary unit you have</td>
-					<td><input type="number" ng-model="newArmy.calvary"></td>
-					<td>{{ calvary() }} Gold</td>
+					<td><center><input class="marketInput" type="number" ng-model="newArmy.calvary"></center></td>
+					<td><center>{{ calvary() }} Gold</center></td>
 				</tr>
 				<tr>
 					<td>Hero</td>
-					<td>{{ empire.hero }}</td>
+					<td><center>{{ empire.hero }}</center></td>
 					<td>100 Gold each</td>
 					<td>Heroes grant power to your army from a scale of 10-150 for each hero unit you have</td>
-					<td><input type="number" ng-model="newArmy.hero"></td>
-					<td>{{ hero() }} Gold</td>
+					<td><center><input class="marketInput" type="number" ng-model="newArmy.hero"></center></td>
+					<td><center>{{ hero() }} Gold</center></td>
 				</tr>
 				<tr>
 					<td></td>
 					<td></td>
 					<td></td>
 					<td></td>
-					<td>Total Cost:</td>
-					<td>{{ total() }} Gold</td>
+					<th><h3>Total Cost:</h3></th>
+					<th><h3>{{ total() }} Gold</h3></th>
 				</tr>
 				<tr>
 					<td></td>
@@ -88,7 +88,7 @@
 					<td></td>
 				</tr>
 			</table>
-			<h4>Current Gold: {{ currentGold() }} Gold</h4>
-		</fieldset>
+			<h1 style="color: yellow;">Current Gold: {{ currentGold() }} Gold</h1>
+		</div>
 	</center>
 </div>

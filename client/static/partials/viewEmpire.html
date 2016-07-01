@@ -1,60 +1,68 @@
 <div>
-	<p><a href="#/rank"><button>Ranking</button></a> <a href="#/economy"><button>Economy</button></a> <a href="#/blackMarket"><button>Black Market</button></a> <a href="#" ng-click="logout()"><button>Log Out</button></a> <a href="#/createEmpire" ng-if="user.empire_id == null"><button>Create Empire</button></a></p>
-	<h3>Welcome Lord <span>{{user.firstName}}</span>! Here is the info of your empire</h3>
+	<center><p><a href="#/rank"><button>Ranking</button></a> <a href="#/economy"><button>Economy</button></a> <a href="#/blackMarket"><button>Black Market</button></a> <a href="#" ng-click="logout()"><button>Log Out</button></a> <a href="#/createEmpire" ng-if="user.empire_id == null"><button>Create Empire</button></a></p></center>
+	<center class="viewCenter"><h3>Welcome Lord <span>{{user.firstName}}</span>! Here is the info of your empire</h3>
 	<h5>Your Advisor: {{ adviser() }}</h5>
 	<h5>Your Commander: {{ commander() }}</h5>
-	<h5>Your Chancellor: {{ chancellor() }}</h5>
+	<h5>Your Chancellor: {{ chancellor() }}</h5></center>
 	<center>
-		<fieldset>
-			<legend><h2>{{ empire.name }}</h2></legend>
-			<table>
+		<div id="viewContainer">
+			<h2 id="viewName">{{ empire.name }}</h2>
+			<table style="border-spacing: 35px;">
 				<tr>
-					<th>Units</th>
-					<th>Quantity</th>
-					<th>Abilities</th>
-				</tr>
-				<tr>
+					<th></th>
+					<th width=""><h3><u>Units</u></h3></th>
+					<th width=""><h3><u>Quantity</u></h3></th>
+					<th width=""><h3><u>Abilities</u></h3></th>
+				<tr align="left">
+					<td style="display:block"><img align="right" src="/images/laborer.gif" alt="Laborer"></td>
 					<td>Laborers</td>
-					<td>{{ empire.worker }}</td>
+					<td><center>{{ empire.worker }}</center></td>
 					<td>Laborers grant you 1-5 gold each time you send them to work (up to 10 times per day)</td>
 				</tr>
-				<tr>
+				<tr align="left">
+					<td style="display:block"><img align="right" src="/images/warrior.gif" alt="Infantry"></td>
 					<td>Infantry</td>
-					<td>{{ empire.infantry }}</td>
+					<td><center>{{ empire.infantry }}</center></td>
 					<td>Infantry grants power to your army from a scale of 1-10 for each infantry unit you have</td>
 				</tr>
-				<tr>
+				<tr align="left">
+					<td style="display:block"><img align="right" src="/images/archer.gif" alt="Archer"></td>
 					<td>Archers</td>
-					<td>{{ empire.archer }}</td>
+					<td><center>{{ empire.archer }}</center></td>
 					<td>Archers grant power to your army from a scale of 3-15 for each archer unit you have</td>
 				</tr>
 				<tr>
+					<td style="display:block"><img align="right" src="/images/Knight.gif" alt="Knight"></td>
 					<td>Knights</td>
-					<td>{{ empire.knight }}</td>
+					<td><center>{{ empire.knight }}</center></td>
 					<td>Knights grant power to your army from a scale of 5-20 for each knight unit you have</td>
 				</tr>
 				<tr>
+					<td style="display:block"><img align="right" src="/images/warrior.gif" alt="Warrior"></td>
 					<td>Warriors</td>
-					<td>{{ empire.warrior }}</td>
+					<td><center>{{ empire.warrior }}</center></td>
 					<td>Warriors grant power to your army from a scale of 10-15 for each warrior unit you have</td>
 				</tr>
 				<tr>
+					<td style="display:block"><img align="right" src="/images/cavalry.gif" alt="Cavalry"></td>
 					<td>Calvary</td>
-					<td>{{ empire.calvary }}</td>
+					<td><center>{{ empire.calvary }}</center></td>
 					<td>The calvary grants power to your army from a scale of 15-25 for each calvary unit you have</td>
 				</tr>
 				<tr>
+					<td style="display:block"><img align="right" src="/images/hero.gif" alt="hero"></td>
 					<td>Heroes</td>
-					<td>{{ empire.hero }}</td>
+					<td><center>{{ empire.hero }}</center></td>
 					<td>Heroes grant power to your army from a scale of 10-150 for each hero unit you have</td>
 				</tr>
 			</table>
-			<h4>Army power: {{ empire.power }}</h4>
-			<h4>Current Gold: {{ empire.gold }} Gold</h4>
-		</fieldset>
+			<h2>Army power: {{ empire.power }}</h2>
+			<h2 style="color: gold;">Current Gold: {{ empire.gold }} Gold</h2>
+		</div>
 	</center>
-	<h6>*HINT: Don't trust everything that your Advisor says...</h6>
-	<div>
+	<h6 style="color: white">*HINT: Don't trust everything that your Advisor says...</h6>
+	<div id="viewList">
+	<br><center><h2 style="margin-top: 10px;">Battle News</h2></center><br>
 		<ul>
 			<li ng-repeat='update in updates | orderBy: "-created_at"'><h3>{{update.update}}</h3></li>
 		</ul>

@@ -1,39 +1,42 @@
 <div>
-	<p><a href="#/viewEmpire"><button>Your Empire</button></a> <a href="#" ng-click="logout()"><button>Log Out</button></a></p>
+	<center class="viewCenter"><p><a href="#/viewEmpire"><button>Your Empire</button></a> <a href="#" ng-click="logout()"><button>Log Out</button></a></p>
 	<h3>Welcome Lord <span>{{ user.firstName }}</span>! Please choose where to send your laborers</h3>
 	<h5>Your Advisor: {{ adviser() }}</h5>
-	<h5>Your Foreman: {{ foreman() }}</h5>
+	<h5>Your Foreman: {{ foreman() }}</h5></center>
+
 	<center><h4>You have {{ click() }} turn(s) left</h4></center>
 	<center><h4>Current gold: {{ empire.gold }} gold</h4></center>
 	<center><h4>Current laborers: {{empire.worker}} laborers</h4></center>
-	<div>
-		<center>
-			<p>Gamble:</p>
-			<p>Please place your bet and choose a number from 1-99</p>
-			<p>Reward: 70 times your bet if your number is matched</p>
-			<label>Choose your number(0-99): <input type="number" max=99 ng-model="betNum"></label><br>
-			<label>Place your bet: <input type="number" ng-model="betGold"></label><br>
-			<button ng-click="gamble()" ng-if="currentGold() > 0">Gamble</button>
-		</center>	
+	<div id="economyMain">
+		<div id="economyGamble">
+			<center>
+				<h3>Gamble:</h3>
+				<p>Please place your bet and choose a number from 1-99</p>
+				<p>Reward: 70 times your bet if your number is matched</p>
+				<label>Choose your number(0-99): <input id="rankInput" type="number" max=99 ng-model="betNum"></label><br>
+				<label>Place your bet: <input id="rankInput" type="number" ng-model="betGold"></label><br>
+				<button ng-click="gamble()" ng-if="currentGold() > 0">Gamble</button>
+			</center>	
+		</div>
+		<div id="economyWood">
+			<center>
+				<h3>Woods(safe):</h3>
+				<p>Cost: 0 Gold</p>
+				<p>Your laborer(s) can gather wood and hunt for animals to exchange for gold.</p>
+				<p>Reward: Depends on your laborers productivity</p>
+				<button ng-click="wood()" ng-if="click() > 0">Send Laborers to the Woods</button>
+			</center>
+		</div>
+		<div id="economySea">
+			<center>
+				<h3>Sea(dangerous):</h3>
+				<p>Cost: 2 Gold per Laborer</p>
+				<p>Your laborers can fish and hunt for rare ocean animals to exchange for gold</p>
+				<p>Reward: Depends on your laborers productivity + 3 Gold</p>
+				<button ng-click="sea()" ng-if="click() > 0">Send laborers to the Sea</button>
+			</center>
+		</div>
+		<p ng-repeat="message in messages">{{ message }}</p>
 	</div>
-	<div>
-		<center>
-			<p>Woods(safe):</p>
-			<p>Cost: 0 Gold</p>
-			<p>Your laborer(s) can gather wood and hunt for animals to exchange for gold.</p>
-			<p>Reward: Depends on your laborers productivity</p>
-			<button ng-click="wood()" ng-if="click() > 0">Send Laborers to the Woods</button>
-		</center>
-	</div>
-	<div>
-		<center>
-			<p>Sea(dangerous):</p>
-			<p>Cost: 2 Gold per Laborer</p>
-			<p>Your laborers can fish and hunt for rare ocean animals to exchange for gold</p>
-			<p>Reward: Depends on your laborers productivity + 3 Gold</p>
-			<button ng-click="sea()" ng-if="click() > 0">Send laborers to the Sea</button>
-		</center>
-	</div>
-	<p ng-repeat="message in messages">{{ message }}</p>
 
 </div>
