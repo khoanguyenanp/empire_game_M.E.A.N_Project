@@ -482,5 +482,144 @@ myApp.controller('enemyController', function($scope, userFactory,empireFactory, 
 		$scope.enemy = data;
 		console.log($scope.enemy);
 	})
+	$scope.attack = function(){
+		$scope.messages=[];
+		var enemyPower = $scope.enemy.power * 1.5;
+		var myPower = $scope.empire.power * 0.9;
+		if(myPower > enemyPower){
+			var dif = Math.floor(myPower/enemyPower);
+			enemyPower = enemyPower * dif;
+			var rand = Math.floor(Math.random() * (100 - 1)) + 1;
+			myPower = myPower * rand;
+			enemyPower = enemyPower * (100-rand);
+			if(myPower > enemyPower){
+				var temp = $scope.enemy.gold;
+				var deduct = Math.floor(Math.random() * (60 - 40)) + 40;
+				$scope.enemy.gold = Math.floor(($scope.enemy.gold/100)* deduct);
+				var win = temp-$scope.enemy.gold;
+				$scope.messages.push("You win " + win + " golds from your enemy but we lose some of our army as well");
+				$scope.enemy.worker = Math.floor(($scope.enemy.worker/100)* deduct);
+				$scope.enemy.infantry = Math.floor(($scope.enemy.infantry/100)* deduct);
+				$scope.enemy.archer = Math.floor(($scope.enemy.archer/100)* deduct);
+				$scope.enemy.knight = Math.floor(($scope.enemy.knight/100)* deduct);
+				$scope.enemy.warrior = Math.floor(($scope.enemy.warrior/100)* deduct);
+				$scope.enemy.calvary = Math.floor(($scope.enemy.calvary/100)* deduct);
+				$scope.enemy.hero = Math.floor(($scope.enemy.hero/100)* deduct);
+				$scope.enemy.power = Math.floor(($scope.enemy.power/100)* deduct);
+
+				$scope.empire.gold += win;
+				var deduct2 = Math.floor(Math.random() * (80 - 60)) + 60;
+				$scope.empire.infantry = Math.floor(($scope.empire.infantry/100)* deduct2);
+				$scope.empire.archer = Math.floor(($scope.empire.archer/100)* deduct2);
+				$scope.empire.knight = Math.floor(($scope.empire.knight/100)* deduct2);
+				$scope.empire.warrior = Math.floor(($scope.empire.warrior/100)* deduct2);
+				$scope.empire.calvary = Math.floor(($scope.empire.calvary/100)* deduct2);
+				$scope.empire.hero = Math.floor(($scope.empire.hero/100)* deduct2);
+				$scope.empire.power = Math.floor(($scope.empire.power/100)* deduct2);	
+			} else {
+				var temp = $scope.empire.gold;
+				var deduct = Math.floor(Math.random() * (60 - 30)) + 30;
+				$scope.empire.gold = Math.floor(($scope.empire.gold/100)* deduct);
+				var lost = temp-$scope.empire.gold;
+				$scope.messages.push("You lost " + lost + " golds to your enemy and some of our army as well");
+				$scope.empire.worker = Math.floor(($scope.empire.worker/100)* deduct);
+				$scope.empire.infantry = Math.floor(($scope.empire.infantry/100)* deduct);
+				$scope.empire.archer = Math.floor(($scope.empire.archer/100)* deduct);
+				$scope.empire.knight = Math.floor(($scope.empire.knight/100)* deduct);
+				$scope.empire.warrior = Math.floor(($scope.empire.warrior/100)* deduct);
+				$scope.empire.calvary = Math.floor(($scope.empire.calvary/100)* deduct);
+				$scope.empire.hero = Math.floor(($scope.empire.hero/100)* deduct);
+				$scope.empire.power = Math.floor(($scope.empire.power/100)* deduct);
+
+				$scope.enemy.gold += lost;
+				var deduct2 = Math.floor(Math.random() * (85 - 60)) + 60;
+				$scope.enemy.infantry = Math.floor(($scope.enemy.infantry/100)* deduct2);
+				$scope.enemy.archer = Math.floor(($scope.enemy.archer/100)* deduct2);
+				$scope.enemy.knight = Math.floor(($scope.enemy.knight/100)* deduct2);
+				$scope.enemy.warrior = Math.floor(($scope.enemy.warrior/100)* deduct2);
+				$scope.enemy.calvary = Math.floor(($scope.enemy.calvary/100)* deduct2);
+				$scope.enemy.hero = Math.floor(($scope.enemy.hero/100)* deduct2);
+				$scope.enemy.power = Math.floor(($scope.enemy.power/100)* deduct2);	
+			}
+
+		} else {
+			var dif = Math.floor(enemyPower/myPower);
+			myPower = myPower * dif;
+			var rand = Math.floor(Math.random() * (100 - 1)) + 1;
+			enemyPower = enemyPower * rand;
+			myPower = myPower * (100-rand);
+			if(myPower > enemyPower){
+				var temp = $scope.enemy.gold;
+				var deduct = Math.floor(Math.random() * (60 - 40)) + 40;
+				$scope.enemy.gold = Math.floor(($scope.enemy.gold/100)* deduct);
+				var win = temp-$scope.enemy.gold;
+				$scope.messages.push("You win " + win + " golds from your enemy but we lose some of our army as well");
+				$scope.enemy.worker = Math.floor(($scope.enemy.worker/100)* deduct);
+				$scope.enemy.infantry = Math.floor(($scope.enemy.infantry/100)* deduct);
+				$scope.enemy.archer = Math.floor(($scope.enemy.archer/100)* deduct);
+				$scope.enemy.knight = Math.floor(($scope.enemy.knight/100)* deduct);
+				$scope.enemy.warrior = Math.floor(($scope.enemy.warrior/100)* deduct);
+				$scope.enemy.calvary = Math.floor(($scope.enemy.calvary/100)* deduct);
+				$scope.enemy.hero = Math.floor(($scope.enemy.hero/100)* deduct);
+				$scope.enemy.power = Math.floor(($scope.enemy.power/100)* deduct);
+
+				$scope.empire.gold += win;
+				var deduct2 = Math.floor(Math.random() * (80 - 60)) + 60;
+				$scope.empire.infantry = Math.floor(($scope.empire.infantry/100)* deduct2);
+				$scope.empire.archer = Math.floor(($scope.empire.archer/100)* deduct2);
+				$scope.empire.knight = Math.floor(($scope.empire.knight/100)* deduct2);
+				$scope.empire.warrior = Math.floor(($scope.empire.warrior/100)* deduct2);
+				$scope.empire.calvary = Math.floor(($scope.empire.calvary/100)* deduct2);
+				$scope.empire.hero = Math.floor(($scope.empire.hero/100)* deduct2);
+				$scope.empire.power = Math.floor(($scope.empire.power/100)* deduct2);	
+			} else {
+				var temp = $scope.empire.gold;
+				var deduct = Math.floor(Math.random() * (60 - 30)) + 30;
+				$scope.empire.gold = Math.floor(($scope.empire.gold/100)* deduct);
+				var lost = temp-$scope.empire.gold;
+				$scope.messages.push("You lost " + lost + " golds to your enemy and some of our army as well");
+				$scope.empire.worker = Math.floor(($scope.empire.worker/100)* deduct);
+				$scope.empire.infantry = Math.floor(($scope.empire.infantry/100)* deduct);
+				$scope.empire.archer = Math.floor(($scope.empire.archer/100)* deduct);
+				$scope.empire.knight = Math.floor(($scope.empire.knight/100)* deduct);
+				$scope.empire.warrior = Math.floor(($scope.empire.warrior/100)* deduct);
+				$scope.empire.calvary = Math.floor(($scope.empire.calvary/100)* deduct);
+				$scope.empire.hero = Math.floor(($scope.empire.hero/100)* deduct);
+				$scope.empire.power = Math.floor(($scope.empire.power/100)* deduct);
+
+				$scope.enemy.gold += lost;
+				var deduct2 = Math.floor(Math.random() * (85 - 60)) + 60;
+				$scope.enemy.infantry = Math.floor(($scope.enemy.infantry/100)* deduct2);
+				$scope.enemy.archer = Math.floor(($scope.enemy.archer/100)* deduct2);
+				$scope.enemy.knight = Math.floor(($scope.enemy.knight/100)* deduct2);
+				$scope.enemy.warrior = Math.floor(($scope.enemy.warrior/100)* deduct2);
+				$scope.enemy.calvary = Math.floor(($scope.enemy.calvary/100)* deduct2);
+				$scope.enemy.hero = Math.floor(($scope.enemy.hero/100)* deduct2);
+				$scope.enemy.power = Math.floor(($scope.enemy.power/100)* deduct2);	
+			}
+		}
+		empireFactory.updateEmpire($scope.empire,function(data){
+			$scope.empire = data;
+		})
+		empireFactory.updateEnemy($scope.enemy,function(data){
+			$scope.enemy = data;
+		})
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 })

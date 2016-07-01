@@ -110,8 +110,57 @@ module.exports = {
 				res.json(data);
 			}
 		})
-	}
+	},
 
+	updateEmpire: function(req,res){
+		Empire.findOne({_id:req.body._id}, function(err,empire){
+			if(err){
+				console.log("Error(s)", err);
+			} else {
+				empire.worker = req.body.worker;
+				empire.infantry = req.body.infantry;
+				empire.archer = req.body.archer;
+				empire.knight = req.body.knight;
+				empire.warrior = req.body.warrior;
+				empire.calvary = req.body.calvary;
+				empire.hero = req.body.hero;
+				empire.power = req.body.power;
+				empire.gold = req.body.gold;
+				empire.save(function(err, output){
+					if(err){
+						console.log("Error(s)", err);
+					} else {
+						res.json(output);
+					}
+				})
+			}
+		})
+	},
+
+	updateEnemy: function(req,res){
+		Empire.findOne({_id:req.body._id}, function(err,empire){
+			if(err){
+				console.log("Error(s)", err);
+			} else {
+				empire.worker = req.body.worker;
+				empire.infantry = req.body.infantry;
+				empire.archer = req.body.archer;
+				empire.knight = req.body.knight;
+				empire.warrior = req.body.warrior;
+				empire.calvary = req.body.calvary;
+				empire.hero = req.body.hero;
+				empire.power = req.body.power;
+				empire.gold = req.body.gold;
+				empire.save(function(err, output){
+					if(err){
+						console.log("Error(s)", err);
+					} else {
+						res.json(output);
+					}
+				})
+			}
+		})
+	},
 
 
 

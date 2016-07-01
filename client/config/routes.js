@@ -29,5 +29,4 @@ myApp.config(function($routeProvider){
 		templateUrl: '/partials/enemy.html',
 		controller: 'enemyController'
 	})
-
 })

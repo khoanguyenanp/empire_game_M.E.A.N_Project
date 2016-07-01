@@ -56,6 +56,7 @@ myApp.factory('empireFactory', function($http, $location){
 	var factory={};
 	var empire = {};
 	var empireList = [];
+	var messages = [];
 
 	factory.createEmpire = function(data,callback){
 		$http.post('/createEmpire', data).success(function(output){
@@ -104,6 +105,18 @@ myApp.factory('empireFactory', function($http, $location){
 			callback(output);
 		})
 	}
+	factory.updateEmpire = function(data,callback){
+		$http.post('/updateEmpire', data).success(function(output){
+			empire = output;
+			callback(output);
+		})
+	}
+	factory.updateEnemy = function(data,callback){
+		$http.post('/updateEnemy', data).success(function(output){
+			callback(output);
+		})
+	}
+
 	return factory;
 })
 
