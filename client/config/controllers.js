@@ -441,9 +441,10 @@ myApp.controller('economyController', function($scope, userFactory,empireFactory
 		if($scope.empire.worker < 500){
 			return ("We need more laborers my Lord, to make gold and to sacrify ...")
 		}
-		if($$scope.empire.worker > 2000){
+		if($scope.empire.worker > 2000){
 			return ("We have good amount of laborers, lets send them to the sea, to make gold and fed them to the shark, LIKE A BOSS")
-		} else {
+		} 
+		else {
 			return ("laborers, get to work, make yourself useful.")
 		}
 	}
