@@ -29,6 +29,11 @@ legend {
   font-size: 24px;
 }
 
+#container {
+  height: auto;
+  width: 1100px;
+}
+
 
 /********************LOGIN AND REGISTRATION PARTIAL********************/
 
@@ -48,6 +53,7 @@ html {
   width: 400px;
   margin-right: 150px;
   margin-left: 80px;
+  margin-bottom: 100px;
 }
 
 #Login {

@@ -2,37 +2,37 @@
 	<center><img src="/images/battlecraft.gif"></center>
 	<center><h1 style='color:#A81A1A;'>Conquer your enemies</h1></center>
 	<p ng-repeat='message in messages'>{{message}}</p>
-	<div id="Register">
-		<form>
-			<fieldset>
-				<center><h2 style="color:#45a049 ">Register</h2></center>
-				<table>
-					<tbody>
-						<tr><td><label>First Name:</label></td><td><input type="text" ng-model="regUser.firstName" required></td></tr>
-						<tr><td><label>Last Name:</label></td><td><input type="text" ng-model="regUser.lastName" required></td></tr>
-						<tr><td><label>Email:</label></td><td><input type="text" ng-model="regUser.email" required></td></tr>
-						<tr><td><label>Password:</label></td><td><input type="password" ng-model="regUser.password" required></td></tr>
-						<tr><td></td><td><font size="1">* Password should be at least 8 characters</font></td></tr>
-						<tr><td><label>Confirm Password:</label></td><td><input type="password" ng-model="regUser.confirmPassword" required></td></tr>
-						<tr><td>Date of Birth</td><td><input type="date" max="{{date | date:'yyyy-MM-dd'}}" ng-model="regUser.dob" required=""></td></tr>
-					</tbody>
-				</table>
-				<input type="submit" value="Register" ng-click='register(regUser)'>	
-			</fieldset>
-		</form>
-	</div>
-	<div id="Login">
-		<form>
-			<fieldset>
-				<center><h2 style="color:#45a049">Account Login</h2></center>
+		<div id="Register">
+			<form>
+				<fieldset>
+					<center><h2 style="color:#45a049 ">Register</h2></center>
 					<table>
 						<tbody>
-							<tr><td><label>Email:</label></td><td><input type="text" ng-model="loginUser.email" required></td></tr>
-							<tr><td><label>Password:</label></td><td><input type="password" ng-model="loginUser.password" required></td></tr>
+							<tr><td><label>First Name:</label></td><td><input type="text" ng-model="regUser.firstName" required></td></tr>
+							<tr><td><label>Last Name:</label></td><td><input type="text" ng-model="regUser.lastName" required></td></tr>
+							<tr><td><label>Email:</label></td><td><input type="text" ng-model="regUser.email" required></td></tr>
+							<tr><td><label>Password:</label></td><td><input type="password" ng-model="regUser.password" required></td></tr>
+							<tr><td></td><td><font size="1">* Password should be at least 8 characters</font></td></tr>
+							<tr><td><label>Confirm Password:</label></td><td><input type="password" ng-model="regUser.confirmPassword" required></td></tr>
+							<tr><td>Date of Birth</td><td><input type="date" max="{{date | date:'yyyy-MM-dd'}}" ng-model="regUser.dob" required=""></td></tr>
 						</tbody>
 					</table>
-				<input type="submit" value="Login" ng-click='login(loginUser)'>
-			</fieldset>
-		</form>
-	</div>
+					<input type="submit" value="Register" ng-click='register(regUser)'>	
+				</fieldset>
+			</form>
+		</div>
+		<div id="Login">
+			<form>
+				<fieldset>
+					<center><h2 style="color:#45a049">Account Login</h2></center>
+						<table>
+							<tbody>
+								<tr><td><label>Email:</label></td><td><input type="text" ng-model="loginUser.email" required></td></tr>
+								<tr><td><label>Password:</label></td><td><input type="password" ng-model="loginUser.password" required></td></tr>
+							</tbody>
+						</table>
+					<input type="submit" value="Login" ng-click='login(loginUser)'>
+				</fieldset>
+			</form>
+		</div>
 </div>
