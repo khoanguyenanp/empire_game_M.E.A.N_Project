@@ -33,7 +33,6 @@ myApp.factory('userFactory', function($http, $location){
 				$location.path('/');
 			} else {
 				currentUser = output;
-				console.log(currentUser);
 				$location.path('/viewEmpire');
 			}
 		})
