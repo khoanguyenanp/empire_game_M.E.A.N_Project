@@ -1,4 +1,53 @@
 <div>
 	<p><a href="#/viewEmpire"><button>Your Empire</button></a> <a href="#" ng-click="logout()"><button>Log Out</button></a></p>
 	<h3>Lord <span>{{user.firstName}}</span>! Here is your enemy info, should we attack them?</h3>
+	<center>
+		<table>
+			<tr>
+				<th></th>
+				<th>{{empire.name}} of {{empire.user_name}}</th>
+				<th>{{enemy.name}} of {{enemy.user_name}}</th>
+			</tr>
+			<tr>
+				<td>Laborers</td>
+				<th>{{empire.worker}}</th>
+				<th>{{enemy.worker}}</th>
+			</tr>
+			<tr>
+				<td>Infantry</td>
+				<th>{{empire.infantry}}</th>
+				<th>{{enemy.infantry}}</th>
+			</tr>
+			<tr>
+				<td>Archers</td>
+				<th>{{empire.archer}}</th>
+				<th>{{enemy.archer}}</th>
+			</tr>
+			<tr>
+				<td>Knights</td>
+				<th>{{empire.knight}}</th>
+				<th>{{enemy.knight}}</th>
+			</tr>
+			<tr>
+				<td>Warriors</td>
+				<th>{{empire.warrior}}</th>
+				<th>{{enemy.warrior}}</th>
+			</tr>
+			<tr>
+				<td>Calvary</td>
+				<th>{{empire.calvary}}</th>
+				<th>{{enemy.calvary}}</th>
+			</tr>
+			<tr>
+				<td>Heroes</td>
+				<th>{{empire.hero}}</th>
+				<th>{{enemy.hero}}</th>
+			</tr>
+			<tr>
+				<td>Gold</td>
+				<th>{{empire.gold}}</th>
+				<th>{{enemy.gold}}</th>
+			</tr>
+		</table>
+	</center>
 </div>

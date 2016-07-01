@@ -100,6 +100,16 @@ module.exports = {
 				res.json(data)
 			}
 		})
+	},
+
+	viewEnemy: function(req,res){
+		Empire.findOne({_id: req.params.id}, function(err,data){
+			if(err){
+				console.log("Error(s)", err);
+			} else {
+				res.json(data);
+			}
+		})
 	}
 
 

@@ -98,6 +98,12 @@ myApp.factory('empireFactory', function($http, $location){
 			callback(empireList);
 		})
 	}
+
+	factory.viewEnemy = function(data,callback){
+		$http.get('/viewEnemy/'+data).success(function(output){
+			callback(output);
+		})
+	}
 	return factory;
 })
 

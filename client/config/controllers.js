@@ -106,7 +106,7 @@ myApp.controller('createEmpireController', function($scope, userFactory,empireFa
 		}
 		if(data.name == null){
 			$scope.messages = [];
-			$scope.messages.push("Empire's name can't be empty");
+			$scope.messages.push("Your empire's name cannot be empty! What would your army fight for?!");
 		} else {
 			data.gold = $scope.currentGold();
 			$scope.infantryPower = data.infantry * (Math.floor(Math.random() * (10 - 1)) + 1);
@@ -158,82 +158,82 @@ myApp.controller('viewEmpireController', function($scope, userFactory,empireFact
 	})
 	$scope.adviser = function(){
 		if($scope.empire.power > 25000){
-			return("My lord, we're strong enough to crush those insects, lets attack them")
+			return("Your majesty, we are strong enough to crush them like insects, lets attack them immediately!")
 		}
 		if($scope.empire.gold > 20000){
-			return("Wow, we have too much gold, why don't we make some more by gambling")
+			return("Wow! We have a lot of gold! Why don't we go to Vegas?")
 		}
 		if($scope.empire.power < 2000 && $scope.empire.gold > 5000){
-			return("My Lord, why don't you buy some army")
+			return("Your majesty, why don't you buy some more units to build up the empire?")
 		}
 		if($scope.empire.gold < 500){
-			return("My Lord, you can buy more gold to help this empire survive. I dont want to die :(")
+			return("Your majesty, we need more gold and units in order for our empire to survive. I don't want to die :(")
 		}
 		if($scope.empire.worker >2000){
-			return("Worker, worker everywhere, lets go to work and make some gold")
+			return("There are laborers everywhere! Let's send them to work and get some gold!")
 		}
 		if($scope.empire.hero >50){
-			return("Hero everywhere, everyone can become a hero, what can Superman do????")
+			return("There are heroes everywhere! Anyone can become a hero! Where's Superman????")
 		}
 		if($scope.empire.calvary >1000){
-			return("Does anyone smell something like horsesh*t, too much Horse, I SAID TOO MUCH")
+			return("Does anyone else smell that? I think we have too many horses... It smells really bad!")
 		} else {
-			return("My Lord, why dont you do something?")
+			return("Your majesty, why don't you do something?")
 		}
 	}
 	$scope.commander = function(){
 		if($scope.empire.power>25000){
 			if($scope.empire.gold <1000){
-				return("Im ready to attack")
+				return("We're ready to attack at your command!")
 			}
 			if($scope.empire.gold >5000){
-				return("My Lord, buy more army before attacking")
+				return("Your majesty, we need to buy more units before we attack!")
 			} else {
-				return("We'ready for your order, my Lord")
+				return("We're ready to attack at your command, your majesty!")
 			}
 		}
 		if($scope.empire.power <2000){
-			return("We need to get more army")
+			return("We need more units!")
 		}
 		if($scope.empire.power<25000){
 			if($scope.empire.hero <10){
-				return("We need more hero")
+				return("We need more heroes! Where's Superman when you need him?!")
 			}
 			if($scope.empire.calvary <50){
-				return("We need more Calvary")
+				return("The calvary requests more horses!")
 			}
 			if($scope.empire.warrior <500){
-				return("We might need more Warrior")
+				return("We need more warriors! But don't call on the 2016 Golden State Warriors...")
 			}
 			if($scope.empire.knight < 1000){
-				return("More Knights can help us on the battlefield")
+				return("We need more knights in the battlefield!")
 			} else {
-				return('We need bigger army')
+				return("We're going to need a bigger army...")
 			}
 		} else {
-			return("We'ready for your order, my Lord");
+			return("We're ready for your orders, your majesty");
 		}
 	}
 	$scope.chancellor = function(){
 		if($scope.empire.gold<2000){
 			if($scope.empire.worker<500){
-				return("We need to buy more workers")
+				return("We need more laborers!")
 			}
 			if($scope.empire.worker>2000){
-				return("These workers are useless, we need more strong workers")
+				return("Mo laborers, mo problems.")
 			} else {
-				return("We need to find more gold, my Lord")
+				return("We need to find more gold, your majesty")
 			}
 		}
 		if($scope.empire.gold>2000){
 			if($scope.empire.gold<10000){
-				return("Hmm, need more gold. Please make the workers work")
+				return("Hmm, we need more gold. Make the laborers do their damn job!")
 			}
 			if($scope.empire.gold>=10000){
-				return("We have gold now, but we need more, more GOLD, more GOLD")
+				return("We have gold now, but we could always use more... MORE GOLD PLZ!")
 			}
 		} else {
-			return("We need GOLD, my LORD")
+			return("We desperately need GOLD, your majesty!!!")
 		}
 	}
 
@@ -244,6 +244,7 @@ myApp.controller('blackMarketController', function($scope, userFactory,empireFac
 	$scope.empire = {};
 	$scope.user = {};
 	$scope.messages=[];
+	$scope.date = new Date();
 
 	userFactory.getUser(function(data){
 		$scope.user = data;
@@ -333,9 +334,11 @@ myApp.controller('blackMarketController', function($scope, userFactory,empireFac
 })
 
 myApp.controller('economyController', function($scope, userFactory,empireFactory, $location){
+	$scope.newArmy = {};
 	$scope.empire = {};
 	$scope.user = {};
 	$scope.messages=[];
+	$scope.date = new Date();
 
 	userFactory.getUser(function(data){
 		$scope.user = data;
@@ -360,7 +363,7 @@ myApp.controller('economyController', function($scope, userFactory,empireFactory
 		var totalGold =0;
 		if ((Math.floor(Math.random() * 10)) < 2){
 			$scope.empire.worker -= partialWorker * 2; 
-			$scope.messages.push("You lost "+ partialWorker * 2 + " worker(s)");	
+			$scope.messages.push("You lost "+ partialWorker * 2 + " laborers");	
 			count = 18;
 		} else {
 			count = 20;
@@ -370,7 +373,7 @@ myApp.controller('economyController', function($scope, userFactory,empireFactory
 			$scope.empire.gold += makeGold
 			totalGold += makeGold;	
 		}
-		$scope.messages.push("You made " + totalGold + " gold(s)")
+		$scope.messages.push("You made " + totalGold + " gold")
 		$scope.empire.click += 1;
 		empireFactory.makeGold($scope.empire, function(data){
 			$scope.empire = data;
@@ -384,7 +387,7 @@ myApp.controller('economyController', function($scope, userFactory,empireFactory
 		var totalGold =0;
 		if ((Math.floor(Math.random() * 10)) < 5){
 			$scope.empire.worker -= partialWorker * 10; 
-			$scope.messages.push("You lost "+ partialWorker * 10 + " worker(s)");	
+			$scope.messages.push("You lost "+ partialWorker * 10 + " laborers");	
 			count = 30;
 		} else {
 			count = 40;
@@ -394,7 +397,7 @@ myApp.controller('economyController', function($scope, userFactory,empireFactory
 			$scope.empire.gold += makeGold
 			totalGold += makeGold;	
 		}
-		$scope.messages.push("You made " + totalGold + " gold(s)")
+		$scope.messages.push("You made " + totalGold + " gold")
 		$scope.empire.click += 1;
 		empireFactory.makeGold($scope.empire, function(data){
 			$scope.empire = data;
@@ -413,15 +416,15 @@ myApp.controller('economyController', function($scope, userFactory,empireFactory
 		$scope.messages=[];
 		if ($scope.betGold == 0){
 			$scope.betGold = 1;
-			$scope.messages.push("Don't CHEAT, 1 Gold for trying");
+			$scope.messages.push("I see what you did... ;) You get 1 gold for trying, but don't cheat!");
 		}
 		var roll = Math.floor(Math.random() * (99 - 0));
 		if(roll == $scope.betNum) {
 			var winGold = $scope.betGold * 70;
-			$scope.messages.push("The number is: " + roll + ", you win: " + winGold + "Gold(s)");
+			$scope.messages.push("The number is: " + roll + ", you win: " + winGold + " Gold(s)");
 			$scope.empire.gold += winGold
 		} else {
-			$scope.messages.push("The number is: " + roll + ", you lose: " + $scope.betGold + "Gold(s)");
+			$scope.messages.push("The number is: " + roll + ", you lose: " + $scope.betGold + " Gold(s)");
 			$scope.empire.gold -= $scope.betGold;
 		}
 		empireFactory.makeGold($scope.empire, function(data){
@@ -431,9 +434,12 @@ myApp.controller('economyController', function($scope, userFactory,empireFactory
 })
 
 myApp.controller('rankController', function($scope, userFactory,empireFactory, $location){
+	$scope.newArmy = {};
 	$scope.empire = {};
 	$scope.user = {};
 	$scope.messages=[];
+	$scope.empireList = [];
+	$scope.date = new Date();
 
 	userFactory.getUser(function(data){
 		$scope.user = data;
@@ -451,7 +457,6 @@ myApp.controller('rankController', function($scope, userFactory,empireFactory, $
 	empireFactory.getEmpire(function(data){
 		$scope.empireList = data;
 	})
-
 })
 myApp.controller('enemyController', function($scope, userFactory,empireFactory, $routeParams, $location){
 	$scope.empire = {};
@@ -474,7 +479,8 @@ myApp.controller('enemyController', function($scope, userFactory,empireFactory, 
 		$scope.empire = data;
 	})
 	empireFactory.viewEnemy(id, function(data){
-		$scope.enemy = {};
+		$scope.enemy = data;
+		console.log($scope.enemy);
 	})
 
 })

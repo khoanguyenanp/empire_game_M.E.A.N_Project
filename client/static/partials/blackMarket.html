@@ -9,67 +9,67 @@
 			<table>
 				<tr>
 					<th>Unit</th>
-					<th>Current</th>
+					<th>Current amount</th>
 					<th>Price</th>
 					<th>Abilites</th>
 					<th>Buy More</th>
 					<th>Cost</th>
 				</tr>
 				<tr>
-					<td>Worker</td>
+					<td>Laborers</td>
 					<td>{{ empire.worker }}</td>
-					<td>1 Gold/Each</td>
-					<td>Give you (1-5) golds each time you send them to work(up to 10 times/day)</td>
+					<td>1 Gold each</td>
+					<td>Laborers grant you 1-5 gold each time you send them to work (up to 10 times per day)</td>
 					<td><input type="number" ng-model="newArmy.worker"></td>
-					<td>{{ worker() }} Gold(s)</td>
+					<td>{{ worker() }} Gold</td>
 				</tr>
 				<tr>
 					<td>Infantry</td>
 					<td>{{ empire.infantry }}</td>
-					<td>1 Gold/Each</td>
-					<td>Give you (1-10) army power for each Infantry you have</td>
+					<td>1 Gold each</td>
+					<td>Infantry grants power to your army from a scale of 1-10 for each infantry unit you have</td>
 					<td><input type="number" ng-model="newArmy.infantry" required></td>
-					<td>{{ infantry() }} Gold(s)</td>
+					<td>{{ infantry() }} Gold</td>
 				</tr>
 				<tr>
 					<td>Archer</td>
 					<td>{{ empire.archer }}</td>
-					<td>2 Golds/Each</td>
-					<td>Give you (3-15) army power for each Archer you have</td>
+					<td>2 Gold each</td>
+					<td>Archers grant power to your army from a scale of 3-15 for each archer unit you have</td>
 					<td><input type="number" ng-model="newArmy.archer"></td>
-					<td>{{ archer() }} Gold(s)</td>
+					<td>{{ archer() }} Gold</td>
 				</tr>
 				<tr>
 					<td>Knight</td>
 					<td>{{ empire.knight }}</td>
-					<td>3 Golds/Each</td>
-					<td>Give you (5-20) army power for each Knight you have</td>
+					<td>3 Gold each</td>
+					<td>Knights grant power to your army from a scale of 5-20 for each knight unit you have</td>
 					<td><input type="number" ng-model="newArmy.knight"></td>
-					<td>{{ knight() }} Gold(s)</td>
+					<td>{{ knight() }} Gold</td>
 				</tr>
 				<tr>
 					<td>Warrior</td>
 					<td>{{ empire.warrior }}</td>
-					<td>5 Golds/Each</td>
-					<td>Give you (10-15) army power for each Warrior you have</td>
+					<td>5 Gold each</td>
+					<td>Warriors grant power to your army from a scale of 10-15 for each warrior unit you have</td>
 					<td><input type="number" ng-model="newArmy.warrior"></td>
-					<td>{{ warrior() }} Gold(s)</td>
+					<td>{{ warrior() }} Gold</td>
 				</tr>
 				<tr>
 					<td>Calvary</td>
 					<td>{{ empire.calvary }}</td>
-					<td>10 Golds/Each</td>
-					<td>Give you (15-25) army power for each Calvary you have</td>
+					<td>10 Gold each</td>
+					<td>The calvary grants power to your army from a scale of 15-25 for each calvary unit you have</td>
 					<td><input type="number" ng-model="newArmy.calvary"></td>
-					<td>{{ calvary() }} Gold(s)</td>
+					<td>{{ calvary() }} Gold</td>
 				</tr>
 				<tr>
 					<td>Hero</td>
 					<td>{{ empire.hero }}</td>
-					<td>100 Golds/Each</td>
-					<td>Give you (10-150) army power for each Hero you have</td>
+					<td>100 Gold each</td>
+					<td>Heroes grant power to your army from a scale of 10-150 for each hero unit you have</td>
 					<td><input type="number" ng-model="newArmy.hero"></td>
-					<td>{{ hero() }} Gold(s)</td>
+					<td>{{ hero() }} Gold</td>
 				</tr>
 				<tr>
 					<td></td>
@@ -77,7 +77,7 @@
 					<td></td>
 					<td></td>
 					<td>Total Cost:</td>
-					<td>{{ total() }} Gold(s)</td>
+					<td>{{ total() }} Gold</td>
 				</tr>
 				<tr>
 					<td></td>
@@ -88,7 +88,7 @@
 					<td></td>
 				</tr>
 			</table>
-			<h4>Current Gold: {{ currentGold() }} Gold(s)</h4>
+			<h4>Current Gold: {{ currentGold() }} Gold</h4>
 		</fieldset>
 	</center>
 </div>

@@ -1,81 +1,83 @@
 <div>
-	<center><h1>Please choose carefully to create your empire</h1></center>
+	<center><h1>Purchase additional units for your empire.</h1></center>
 	<form>
 		<center><p>Your empire name: <input type="text" ng-model="newEmpire.name" required></p></center>
 		<center><p>Current gold: <span>{{ currentGold() }}</span> Gold(s)</p></center>
 		<center><p ng-repeat="message in messages">{{ message }}</p></center>
 		<center><p><h1>{{ error() }}</h1></p></center>
-		<table>
-			<tr>
-				<th>Units</th>
-				<th>Price</th>
-				<th>Abilities</th>
-				<th>Amount to buy</th>
-				<th>Total Cost</th>
-			</tr>
-			<tr>
-				<td>Worker</td>
-				<td>1 Gold/Each</td>
-				<td>Give you (1-5) golds each time you send them to work(up to 10 times/day)</td>
-				<td><input type="number" ng-model="newEmpire.worker"></td>
-				<td>{{ worker() }} Gold(s)</td>
-			</tr>
-			<tr>
-				<td>Infantry</td>
-				<td>1 Gold/Each</td>
-				<td>Give you (1-10) army power for each Infantry you have</td>
-				<td><input type="number" ng-model="newEmpire.infantry" required></td>
-				<td>{{ infantry() }} Gold(s)</td>
-			</tr>
-			<tr>
-				<td>Archer</td>
-				<td>2 Golds/Each</td>
-				<td>Give you (3-15) army power for each Archer you have</td>
-				<td><input type="number" ng-model="newEmpire.archer"></td>
-				<td>{{ archer() }} Gold(s)</td>
-			</tr>
-			<tr>
-				<td>Knight</td>
-				<td>3 Golds/Each</td>
-				<td>Give you (5-20) army power for each Knight you have</td>
-				<td><input type="number" ng-model="newEmpire.knight"></td>
-				<td>{{ knight() }} Gold(s)</td>
-			</tr>
-			<tr>
-				<td>Warrior</td>
-				<td>5 Golds/Each</td>
-				<td>Give you (10-15) army power for each Warrior you have</td>
-				<td><input type="number" ng-model="newEmpire.warrior"></td>
-				<td>{{ warrior() }} Gold(s)</td>
-			</tr>
-			<tr>
-				<td>Calvary</td>
-				<td>10 Golds/Each</td>
-				<td>Give you (15-25) army power for each Calvary you have</td>
-				<td><input type="number" ng-model="newEmpire.calvary"></td>
-				<td>{{ calvary() }} Gold(s)</td>
-			</tr>
-			<tr>
-				<td>Hero</td>
-				<td>100 Golds/Each</td>
-				<td>Give you (10-150) army power for each Hero you have</td>
-				<td><input type="number" ng-model="newEmpire.hero"></td>
-				<td>{{ hero() }} Gold(s)</td>
-			</tr>
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td>Total</td>
-				<td>{{ total() }} Gold(s)</td>
-			</tr>
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td><input type="submit" value="Create your empire" ng-click='createEmpire(newEmpire)' ng-if='currentGold() >= 0'></td>
-				<td></td>
-			</tr>
-		</table>
+		<div id="createTable">
+			<table>
+				<tr>
+					<th>Units</th>
+					<th>Price</th>
+					<th>Abilities</th>
+					<th>Amount</th>
+					<th>Total Cost</th>
+				</tr>
+				<tr>
+					<td>Laborers</td>
+					<td>1 Gold Each</td>
+					<td>Laborers grant you 1-5 gold each time you send them to work (up to 10 times per day)</td>
+					<td><input type="number" ng-model="newEmpire.worker"></td>
+					<td>{{ worker() }} Gold</td>
+				</tr>
+				<tr>
+					<td>Infantry</td>
+					<td>1 Gold each</td>
+					<td>Infantry grants power to your army from a scale of 1-10 for each infantry unit you have</td>
+					<td><input type="number" ng-model="newEmpire.infantry" required></td>
+					<td>{{ infantry() }} Gold</td>
+				</tr>
+				<tr>
+					<td>Archer</td>
+					<td>2 Gold each</td>
+					<td>Archers grant power to your army from a scale of 3-15 for each archer unit you have</td>
+					<td><input type="number" ng-model="newEmpire.archer"></td>
+					<td>{{ archer() }} Gold</td>
+				</tr>
+				<tr>
+					<td>Knight</td>
+					<td>3 Gold each</td>
+					<td>Knights grant power to your army from a scale of 5-20 for each knight unit you have</td>
+					<td><input type="number" ng-model="newEmpire.knight"></td>
+					<td>{{ knight() }} Gold</td>
+				</tr>
+				<tr>
+					<td>Warrior</td>
+					<td>5 Gold each</td>
+					<td>Warriors grant power to your army from a scale of 10-15 for each warrior unit you have</td>
+					<td><input type="number" ng-model="newEmpire.warrior"></td>
+					<td>{{ warrior() }} Gold</td>
+				</tr>
+				<tr>
+					<td>Calvary</td>
+					<td>10 Gold each</td>
+					<td>The calvary grants power to your army from a scale of 15-25 for each calvary unit you have</td>
+					<td><input type="number" ng-model="newEmpire.calvary"></td>
+					<td>{{ calvary() }} Gold</td>
+				</tr>
+				<tr>
+					<td>Hero</td>
+					<td>100 Gold each</td>
+					<td>Heroes grant power to your army from a scale of 10-150 for each hero unit you have</td>
+					<td><input type="number" ng-model="newEmpire.hero"></td>
+					<td>{{ hero() }} Gold</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td>Total</td>
+					<td>{{ total() }} Gold</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td><input type="submit" value="Create your empire" ng-click='createEmpire(newEmpire)' ng-if='currentGold() >= 0'></td>
+					<td></td>
+				</tr>
+			</table>
+		</div>     
 	</form>
 </div>
