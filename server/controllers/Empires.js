@@ -31,18 +31,18 @@ module.exports = {
 
 	viewEmpire: function(req,res){
 		var currentDate = date.toDateString().split("").slice(4).join("");
-		Empire.find({_id:req.params.id}, function(err,empire){
+		Empire.findOne({_id:req.params.id}, function(err,empire){
 			if(err){
 				console.log("Error(s)", err);
 			} else {
-				if(currentDate != empire[0].date) {
-					empire[0].date = currentDate;
-					empire[0].click= 0;
-					empire[0].save(function(err, output){
+				if(currentDate !== empire.date) {
+					empire.date = currentDate;
+					empire.click= 0;
+					empire.save(function(err, output){
 						res.json(output);
 					})
 				} else {
-					res.json(empire[0]);
+					res.json(empire);
 				}
 			}
 		})
